@@ -19,7 +19,7 @@ At the end, it uses a list comprehension to generate the list of duplicates by c
 
 ## Running the Code
 
-The `main()` function in `Exercise1.py` provides an example of how to call `find_duplicates()`. It defines an example list, calls `find_duplicates()` with this list, and prints the result.
+The `main()` function in `Exercise1.py` provides an example of how to call `find_duplicates()`. It defines an input list (the one given in the instructions), calls `find_duplicates()` with this list, and prints the result.
 
 To run the code, use the following command from the root directory of this repository:
 
@@ -29,7 +29,7 @@ python -m exercise1.exercise1
 
 ## Testing the Code
 
-The file `test.py` contains a series of tests for the `find_duplicates()` function, implemented using the `unittest` module from Python's standard library. The tests cover a variety of scenarios, including lists with no duplicates, lists with all duplicates, lists with mixed data types, and large lists.
+The file `test.py` contains a series of tests for the `find_duplicates()` function, implemented using the `unittest` module from Python's standard library. The tests cover a variety of scenarios.
 
 To run the tests, use the following command from the root directory of this repository:
 
@@ -41,11 +41,11 @@ This will automatically run all the test cases defined in test.py and output a r
 
 1. `test_given_example(self)`: This test checks the functionality of the function with the example given in the instructions. It's important to verify that your function behaves as expected with the given example.
 
-2. `test_no_duplicates(self)`: This test checks if the function handles a list without duplicates correctly. It should return an empty list, because there are no duplicates. It's a good test to ensure your function doesn't falsely identify duplicates.
+2. `test_no_duplicates(self)`: This test checks if the function handles a list without duplicates correctly. It should return an empty list, because there are no duplicates. This test case checks whether the function gives false positives.
 
-3. `test_all_duplicates(self)`: This test checks the function's behavior when all elements in the list are duplicates. It's important to check this scenario to ensure your function correctly identifies all elements as duplicates and doesn't miss any.
+3. `test_all_duplicates(self)`: This test checks the function's behavior when all elements in the list are duplicates. It's important to check this scenario to ensure the function correctly identifies all elements as duplicates and doesn't miss any.
 
-4. `test_mixed_elements(self)`: This test checks how the function behaves with a list containing elements of various data types. Python's flexibility allows for lists to contain elements of different types, so it's crucial to ensure your function can handle such lists.
+4. `test_mixed_elements(self)`: This test checks how the function behaves with a list containing elements of various data types. Python's flexibility allows for lists to contain elements of different types, so this case ensures the function can handle such lists.
 
 5. `test_single_element(self)`: This test checks how the function behaves with a list containing a single element. This is a kind of edge case, where the function should return an empty list because there are no duplicates.
 
