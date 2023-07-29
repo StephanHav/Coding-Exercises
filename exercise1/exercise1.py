@@ -27,10 +27,8 @@ def find_duplicates(input_list):
 
 def main():
 
-    #input_list = ['w', 'b'] + ["a", "c", "c", "a", "c", "d", "c", "d", 1] * 10000000 + ['z', 'e', 2]
     input_list = ["b", "a", "c", "c", "e", "a", "c", "d", "c", "d"]
     print(find_duplicates(input_list))
-
     
 
 if __name__ == '__main__':
