@@ -60,9 +60,9 @@ This will automatically run all the test cases defined in `test_exercise2.py` an
 
 4. `test_self_depend()`: This test checks how the function handles a package that depends on itself. This is an edge case where pkg2 depends on pkg2. The function should not get stuck in a loop and should be able to construct the correct dependency tree.
 
-5. `test_unknown_package`: This test checks how the function handles a package that depends on an unknown package (a dependency of a package that is not a key itself in the JSON file). The function should still be able to construct the correct dependency tree and issue a warning about the unknown package.
+5. `test_unknown_package()`: This test checks how the function handles a package that depends on an unknown package (a dependency of a package that is not a key itself in the JSON file). The function should still be able to construct the correct dependency tree and issue a warning about the unknown package.
 
-6. `test_one_package_no_deps`: This test checks how the function handles a package with no dependencies. This case ensures that the function can handle such scenarios and correctly identifies that the package has no dependencies.
+6. `test_one_package_no_deps()`: This test checks how the function handles a package with no dependencies. This case ensures that the function can handle such scenarios and correctly identifies that the package has no dependencies.
 
 7. `test_bigger_file()`: This test checks the function's performance and accuracy with a larger and more complex set of packages and dependencies. It's crucial to test this to ensure your function can handle larger and more complex data and still produce correct results.
 
