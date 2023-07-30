@@ -1,5 +1,6 @@
 import json
 
+
 def build_dep_tree(input_file):
     
     # Assert that input file given is of filetype JSON
@@ -21,14 +22,30 @@ def build_dep_tree(input_file):
 
     return dep_tree
 
+
 def find_dependencies(data, package, path=[]):
 
-    path = path + [package]  # Add the current package to the path
-    graph = {}
+    # Add current package to path variable
+    path = path + [package]
+
+    # Instantiate dict to store dependency tree
+    dep_tree = {}
+
+    # iterate over every value corresponding to the keys
     for dependency in data[package]:
-        if dependency not in path:  # Only recurse if we haven't visited this package in the current path
-            graph[dependency] = find_dependencies(data, dependency, path)
-    return graph
+
+        # Check if recursion has already been done in current path
+        if dependency not in path:
+
+            # Check if dependency matches one of the keys in the file
+            if dependency in data:
+                dep_tree[dependency] = find_dependencies(data, dependency, path)
+
+            else:
+                print(f"Warning: Package {dependency} is not a key in JSON file")
+                dep_tree[dependency] = {}
+
+    return dep_tree
 
 
 def main():
