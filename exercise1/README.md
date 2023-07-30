@@ -19,7 +19,7 @@ At the end, it uses a list comprehension to generate the list of duplicates by c
 
 ## Running the Code
 
-The `main()` function in `Exercise1.py` provides an example of how to call `find_duplicates()`. It defines an input list (the one given in the instructions), calls `find_duplicates()` with this list, and prints the result.
+The `main()` function in `exercise1.py` provides an example of how to call `find_duplicates()`. It defines an input list (the one given in the instructions), calls `find_duplicates()` with this list, and prints the result.
 
 To run the code, use the following command from the root directory of this repository:
 
@@ -29,17 +29,17 @@ python -m exercise1.exercise1
 
 ## Testing the Code
 
-The file `test.py` contains a series of tests for the `find_duplicates()` function, implemented using the `unittest` module from Python's standard library. The tests cover a variety of scenarios.
+The file `test_exercise1.py` contains a series of tests for the `find_duplicates()` function, implemented using the `unittest` module from Python's standard library. The tests cover a variety of scenarios.
 
 To run the tests, use the following command from the root directory of this repository:
 
 ```bash
-python -m unittest exercise1.test
+python -m unittest exercise1.test_exercise1
 ```
 
-This will automatically run all the test cases defined in test.py and output a report on the results. Some additional explanation on each of the test cases is given below:
+This will automatically run all the test cases defined in `test_exercise1.py` and output a report on the results. Some additional explanation on each of the test cases is given below:
 
-1. `test_given_example(self)`: This test checks the functionality of the function with the example given in the instructions. It's important to verify that your function behaves as expected with the given example.
+1. `test_given_example(self)`: This test checks the functionality of the function with the example given in the instructions. It's important to verify that the function behaves as expected with the given example.
 
 2. `test_no_duplicates(self)`: This test checks if the function handles a list without duplicates correctly. It should return an empty list, because there are no duplicates. This test case checks whether the function gives false positives.
 
@@ -51,6 +51,6 @@ This will automatically run all the test cases defined in test.py and output a r
 
 6. `test_empty_list(self)`: This test checks how the function behaves with an empty list. This is another edge case where the function should return an empty list, as there are no elements in the list to begin with.
 
-7. `test_big_list(self)`: This test checks the function's performance and accuracy with a large list. It's crucial to test this to ensure your function can handle large lists and still produce correct results.
+7. `test_big_list(self)`: This test checks the function's performance and accuracy with a large list (1 million elements). It's crucial to test this to ensure your function can handle large lists and still produce correct results.
 
 Each of these test cases addresses a different aspect of the function's behavior, ensuring it works correctly under a variety of scenarios.
