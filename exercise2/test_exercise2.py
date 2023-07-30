@@ -72,6 +72,83 @@ def test_one_package_no_deps():
     delete_json_file(test_file)
 
 
-
+def test_bigger_file():
+    test_file = '/tmp/test_bigger_file.json'
+    test_data = {
+                "pkg1": ["pkg2", "pkg3"],
+                "pkg2": ["pkg3", "pkg4"],
+                "pkg3": [],
+                "pkg4": ["pkg1", "pkg5"],
+                "pkg5": ["pkg3", "pkg2", "pkg1"]
+            }
+    create_json_file(test_data, test_file)
+    result = build_dep_tree(test_file)
+    assert result == {
+                    "pkg1": {
+                        "pkg2": {
+                            "pkg3": {},
+                            "pkg4": {
+                                "pkg5": {
+                                    "pkg3": {}
+                                }
+                            }
+                        },
+                        "pkg3": {}
+                    },
+                    "pkg2": {
+                        "pkg3": {},
+                        "pkg4": {
+                            "pkg1": {
+                                "pkg3": {}
+                            },
+                            "pkg5": {
+                                "pkg3": {},
+                                "pkg1": {
+                                    "pkg3": {}
+                                }
+                            }
+                        }
+                    },
+                    "pkg3": {},
+                    "pkg4": {
+                        "pkg1": {
+                            "pkg2": {
+                                "pkg3": {}
+                            },
+                            "pkg3": {}
+                        },
+                        "pkg5": {
+                            "pkg3": {},
+                            "pkg2": {
+                                "pkg3": {}
+                            },
+                            "pkg1": {
+                                "pkg2": {
+                                    "pkg3": {}
+                                },
+                                "pkg3": {}
+                            }
+                        }
+                    },
+                    "pkg5": {
+                        "pkg3": {},
+                        "pkg2": {
+                            "pkg3": {},
+                            "pkg4": {
+                                "pkg1": {
+                                    "pkg3": {}
+                                }
+                            }
+                        },
+                        "pkg1": {
+                            "pkg2": {
+                                "pkg3": {},
+                                "pkg4": {}
+                            },
+                            "pkg3": {}
+                        }
+                    }
+                }
+    delete_json_file(test_file)
 
 
