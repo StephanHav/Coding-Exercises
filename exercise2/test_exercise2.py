@@ -27,13 +27,27 @@ def test_basic_example():
                       }
 
 
+
 def test_circular_deps():
+
+    # Define test file name in tmp folder
     test_file = '/tmp/test_circular_deps.json'
+
+    # Define test file content
     test_data = {"pkg1": ["pkg2"], "pkg2": ["pkg1"]}
+
+    # Create JSON file 
     create_json_file(test_data, test_file)
+
+    # Store object returned by build_dep_tree()
     result = build_dep_tree(test_file)
+
+    # Assert that produced and expected result are the same
     assert result == {"pkg1": {"pkg2": {}}, "pkg2": {"pkg1": {}}}
+
+    # Delete test file created in tmp dir
     delete_json_file(test_file)
+
 
 
 def test_deps_empty():
