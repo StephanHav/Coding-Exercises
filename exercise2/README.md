@@ -43,7 +43,7 @@ python -m exercise2.exercise2
 
 ## Testing the code
 
-The file `test_exercise2.py` contains a series of tests for the `build_dep_tree()` function, implemented using the PyTest testing framework. The tests cover a variety of scenarios, including circular dependencies, self-dependencies, unknown packages, and more.
+The file `test_exercise2.py` contains a series of tests for the `build_dep_tree()` function, implemented using the PyTest testing framework. The tests cover a variety of scenarios, including circular dependencies, self-dependencies, unknown packages, and more. In order to run these tests it creates test files in the `/tmp` folder, which are deleted upon completion of the test case. tmp is a good directory to do this as files will not persist after a restart in case files are failed to be deleted by the script through an error.  
 
 To run the tests, use the following command from the root directory of this repository:
 ```bash
